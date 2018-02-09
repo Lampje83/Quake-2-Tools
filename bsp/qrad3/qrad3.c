@@ -600,74 +600,49 @@ int main (int argc, char **argv)
 
 	verbose = false;
 
-	for (i=1 ; i<argc ; i++)
-	{
-		if (!strcmp(argv[i],"-dump"))
+	for (i = 1; i < argc; i++) {
+		if (!strcmp (argv[i], "-dump"))
 			dumppatches = true;
-		else if (!strcmp(argv[i],"-bounce"))
-		{
-			numbounce = atoi (argv[i+1]);
+		else if (!strcmp (argv[i], "-bounce")) {
+			numbounce = atoi (argv[i + 1]);
 			i++;
-		}
-		else if (!strcmp(argv[i],"-v"))
-		{
+		} else if (!strcmp (argv[i], "-v")) {
 			verbose = true;
-		}
-		else if (!strcmp(argv[i],"-extra"))
-		{
+		} else if (!strcmp (argv[i], "-extra")) {
 			extrasamples = true;
 			printf ("extrasamples = true\n");
-		}
-		else if (!strcmp(argv[i],"-threads"))
-		{
-			numthreads = atoi (argv[i+1]);
+		} else if (!strcmp (argv[i], "-threads")) {
+			numthreads = atoi (argv[i + 1]);
 			i++;
-		}
-		else if (!strcmp(argv[i],"-chop"))
-		{
-			subdiv = atoi (argv[i+1]);
+		} else if (!strcmp (argv[i], "-chop")) {
+			subdiv = atoi (argv[i + 1]);
 			i++;
-		}
-		else if (!strcmp(argv[i],"-scale"))
-		{
-			lightscale = atof (argv[i+1]);
+		} else if (!strcmp (argv[i], "-scale")) {
+			lightscale = atof (argv[i + 1]);
 			i++;
-		}
-		else if (!strcmp(argv[i],"-direct"))
-		{
-			direct_scale *= atof(argv[i+1]);
+		} else if (!strcmp (argv[i], "-direct")) {
+			direct_scale *= atof (argv[i + 1]);
 			printf ("direct light scaling at %f\n", direct_scale);
 			i++;
-		}
-		else if (!strcmp(argv[i],"-entity"))
-		{
-			entity_scale *= atof(argv[i+1]);
+		} else if (!strcmp (argv[i], "-entity")) {
+			entity_scale *= atof (argv[i + 1]);
 			printf ("entity light scaling at %f\n", entity_scale);
 			i++;
-		}
-		else if (!strcmp(argv[i],"-glview"))
-		{
+		} else if (!strcmp (argv[i], "-glview")) {
 			glview = true;
 			printf ("glview = true\n");
-		}
-		else if (!strcmp(argv[i],"-nopvs"))
-		{
+		} else if (!strcmp (argv[i], "-nopvs")) {
 			nopvs = true;
 			printf ("nopvs = true\n");
-		}
-		else if (!strcmp(argv[i],"-ambient"))
-		{
-			ambient = atof (argv[i+1]) * 128;
+		} else if (!strcmp (argv[i], "-ambient")) {
+			ambient = atof (argv[i + 1]) * 128;
 			i++;
-		}
-		else if (!strcmp(argv[i],"-maxlight"))
-		{
-			maxlight = atof (argv[i+1]) * 128;
+		} else if (!strcmp (argv[i], "-maxlight")) {
+			maxlight = atof (argv[i + 1]) * 128;
 			i++;
-		}
-		else if (!strcmp (argv[i],"-tmpin"))
+		} else if (!strcmp (argv[i], "-tmpin"))
 			strcpy (inbase, "/tmp");
-		else if (!strcmp (argv[i],"-tmpout"))
+		else if (!strcmp (argv[i], "-tmpout"))
 			strcpy (outbase, "/tmp");
 		else
 			break;

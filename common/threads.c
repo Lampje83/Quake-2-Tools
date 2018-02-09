@@ -154,7 +154,7 @@ void RunThreadsOn (int workcnt, qboolean showpacifier, void(*func)(int))
 {
 	int		threadid[MAX_THREADS];
 	HANDLE	threadhandle[MAX_THREADS];
-	int		i;
+	size_t	i;
 	int		start, end;
 
 	start = I_FloatTime ();

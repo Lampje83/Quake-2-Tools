@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.ipch
+/bsp/qbsp3/Debug
+/bsp/qbsp3/x64/Debug
+/bsp/qrad3/x64/Debug
+/x64/Debug

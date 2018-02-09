@@ -35,7 +35,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #endif
 
 #include <stdio.h>
+#define __STDC__ 1
 #include <string.h>
+#undef __STDC__
+#define __STDC__ 0
 #include <stdlib.h>
 #include <errno.h>
 #include <ctype.h>
@@ -56,7 +59,7 @@ typedef unsigned char byte;
 extern int myargc;
 extern char **myargv;
 
-char *strupr (char *in);
+//char *strupr (char *in);
 char *strlower (char *in);
 int Q_strncasecmp (char *s1, char *s2, int n);
 int Q_strcasecmp (char *s1, char *s2);

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{5b96f59d-7f24-4064-a234-d12901fb7733}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\bspfile.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\cmdlib.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\l3dslib.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\lbmlib.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\mathlib.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\mdfour.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\polylib.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\scriplib.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\threads.c" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\trilib.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\bspfile.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\cmdlib.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\l3dslib.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\lbmlib.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\mathlib.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\mdfour.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\polylib.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\qfiles.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\scriplib.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\threads.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\trilib.h" />
+  </ItemGroup>
+</Project>
