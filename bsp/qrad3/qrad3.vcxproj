@@ -129,6 +129,13 @@
     <ClCompile Include="trace.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\common\bspfile.h" />
+    <ClInclude Include="..\..\common\cmdlib.h" />
+    <ClInclude Include="..\..\common\lbmlib.h" />
+    <ClInclude Include="..\..\common\mathlib.h" />
+    <ClInclude Include="..\..\common\polylib.h" />
+    <ClInclude Include="..\..\common\scriplib.h" />
+    <ClInclude Include="..\..\common\threads.h" />
     <ClInclude Include="qrad.h" />
   </ItemGroup>
   <ItemGroup>

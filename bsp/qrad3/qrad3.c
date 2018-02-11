@@ -658,7 +658,11 @@ int main (int argc, char **argv)
 
 	start = I_FloatTime ();
 
-	SetQdirFromPath (argv[i]);	
+	if (getenv ("Q2GAMEDIR")) {
+		SetQdirFromPath (getenv ("Q2GAMEDIR"));
+	} else {
+		SetQdirFromPath (argv[i]);
+	}
 	strcpy (source, ExpandArg(argv[i]));
 	StripExtension (source);
 	DefaultExtension (source, ".bsp");

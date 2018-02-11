@@ -35,6 +35,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #endif
 
 #define	BASEDIRNAME	"quake2"
+#define BASEDIRNAMEALT "quake ii"
 #define PATHSEPERATOR   '/'
 
 // set these before calling CheckParm
@@ -200,17 +201,14 @@ void SetQdirFromPath (char *path)
 	// search for "quake2" in path
 
 	len = strlen(BASEDIRNAME);
-	for (c=path+strlen(path)-1 ; c != path ; c--)
-		if (!Q_strncasecmp (c, BASEDIRNAME, len))
-		{
-			strncpy (qdir, path, c+len+1-path);
+	for (c = path + strlen (path) - 1; c != path; c--) {
+		if (!Q_strncasecmp (c, BASEDIRNAME, len)) {
+			strncpy (qdir, path, c + len + 1 - path);
 			qprintf ("qdir: %s\n", qdir);
-			c += len+1;
-			while (*c)
-			{
-				if (*c == '/' || *c == '\\')
-				{
-					strncpy (gamedir, path, c+1-path);
+			c += len + 1;
+			while (*c) {
+				if (*c == '/' || *c == '\\') {
+					strncpy (gamedir, path, c + 1 - path);
 					qprintf ("gamedir: %s\n", gamedir);
 					return;
 				}
@@ -219,7 +217,27 @@ void SetQdirFromPath (char *path)
 			Error ("No gamedir in %s", path);
 			return;
 		}
-	Error ("SetQdirFromPath: no '%s' in %s", BASEDIRNAME, path);
+	}
+
+	len = strlen (BASEDIRNAMEALT);
+	for (c = path + strlen (path) - 1; c != path; c--) {
+		if (!Q_strncasecmp (c, BASEDIRNAMEALT, len)) {
+			strncpy (qdir, path, c + len + 1 - path);
+			qprintf ("qdir: %s\n", qdir);
+			c += len + 1;
+			while (*c) {
+				if (*c == '/' || *c == '\\') {
+					strncpy (gamedir, path, c + 1 - path);
+					qprintf ("gamedir: %s\n", gamedir);
+					return;
+				}
+				c++;
+			}
+			Error ("No gamedir in %s", path);
+			return;
+		}
+	}
+	Error ("SetQdirFromPath: no '%s' or '%s' in %s", BASEDIRNAME, BASEDIRNAMEALT, path);
 }
 
 char *ExpandArg (char *path)

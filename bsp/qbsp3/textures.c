@@ -53,6 +53,9 @@ int	FindMiptex (char *name)
 		strcpy (textureref[i].animname, mt->animname);
 		free (mt);
 	}
+	else {
+		printf ("Couldn't load %stextures/%s.wal\n", gamedir, name);
+	}
 	nummiptex++;
 
 	if (textureref[i].animname[0])

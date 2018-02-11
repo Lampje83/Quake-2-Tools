@@ -22,6 +22,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "qrad.h"
 
 #define	MAX_LSTYLES	256
+#define GRIDSIZE	16
 
 typedef struct
 {
@@ -542,8 +543,8 @@ void CalcFaceExtents (lightinfo_t *l)
 		l->exactmins[i] = mins[i];
 		l->exactmaxs[i] = maxs[i];
 		
-		mins[i] = floor(mins[i]/16);
-		maxs[i] = ceil(maxs[i]/16);
+		mins[i] = floor(mins[i]/GRIDSIZE);
+		maxs[i] = ceil(maxs[i]/GRIDSIZE);
 
 		l->texmins[i] = mins[i];
 		l->texsize[i] = maxs[i] - mins[i];
@@ -660,9 +661,9 @@ void CalcPoints (lightinfo_t *l, float sofs, float tofs)
 	w = l->texsize[0]+1;
 	l->numsurfpt = w * h;
 
-	starts = l->texmins[0]*16;
-	startt = l->texmins[1]*16;
-	step = 16;
+	starts = l->texmins[0]*GRIDSIZE;
+	startt = l->texmins[1]*GRIDSIZE;
+	step = GRIDSIZE;
 
 
 	for (t=0 ; t<h ; t++)
@@ -1023,9 +1024,9 @@ void AddSampleToPatch (vec3_t pos, vec3_t color, int facenum)
 		WindingBounds (patch->winding, mins, maxs);
 		for (i=0 ; i<3 ; i++)
 		{
-			if (mins[i] > pos[i] + 16)
+			if (mins[i] > pos[i] + GRIDSIZE)
 				goto nextpatch;
-			if (maxs[i] < pos[i] - 16)
+			if (maxs[i] < pos[i] - GRIDSIZE)
 				goto nextpatch;
 		}
 

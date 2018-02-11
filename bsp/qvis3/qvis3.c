@@ -78,12 +78,12 @@ NewWinding
 winding_t *NewWinding (int points)
 {
 	winding_t	*w;
-	int			size;
+	size_t		size;
 	
 	if (points > MAX_POINTS_ON_WINDING)
 		Error ("NewWinding: %i points", points);
 	
-	size = (int)((winding_t *)0)->points[points];
+	size = (size_t)((winding_t *)0)->points[points];
 	w = malloc (size);
 	memset (w, 0, size);
 	
@@ -91,13 +91,14 @@ winding_t *NewWinding (int points)
 }
 
 
-
+#if 0
 void pw(winding_t *w)
 {
 	int		i;
 	for (i=0 ; i<w->numpoints ; i++)
 		printf ("(%5.1f, %5.1f, %5.1f)\n",w->points[i][0], w->points[i][1],w->points[i][2]);
 }
+#endif
 
 void prl(leaf_t *l)
 {
@@ -578,7 +579,11 @@ int main (int argc, char **argv)
 	
 	ThreadSetDefault ();
 
-	SetQdirFromPath (argv[i]);	
+	if (getenv ("Q2GAMEDIR")) {
+		strcpy (gamedir, getenv ("Q2GAMEDIR"));
+	} else {
+		SetQdirFromPath (argv[i]);
+	}
 	strcpy (source, ExpandArg(argv[i]));
 	StripExtension (source);
 	DefaultExtension (source, ".bsp");

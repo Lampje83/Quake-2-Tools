@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "common", "common\common\com
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qrad3", "bsp\qrad3\qrad3.vcxproj", "{9055D5E4-FDB0-4657-B085-66430781E08F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qvis3", "bsp\qvis3\qvis3.vcxproj", "{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -35,6 +37,14 @@ Global
 		{9055D5E4-FDB0-4657-B085-66430781E08F}.Release|x64.Build.0 = Release|x64
 		{9055D5E4-FDB0-4657-B085-66430781E08F}.Release|x86.ActiveCfg = Release|Win32
 		{9055D5E4-FDB0-4657-B085-66430781E08F}.Release|x86.Build.0 = Release|Win32
+		{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4}.Debug|x64.ActiveCfg = Debug|x64
+		{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4}.Debug|x64.Build.0 = Debug|x64
+		{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4}.Debug|x86.ActiveCfg = Debug|Win32
+		{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4}.Debug|x86.Build.0 = Debug|Win32
+		{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4}.Release|x64.ActiveCfg = Release|x64
+		{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4}.Release|x64.Build.0 = Release|x64
+		{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4}.Release|x86.ActiveCfg = Release|Win32
+		{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +52,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D74800C2-0FB3-464B-949E-811971EF39C2} = {9C393652-F3FD-439A-A1A6-63ADFB605EA5}
 		{9055D5E4-FDB0-4657-B085-66430781E08F} = {9C393652-F3FD-439A-A1A6-63ADFB605EA5}
+		{0500B1B7-F4E6-4285-AC9C-A15E9A8733F4} = {9C393652-F3FD-439A-A1A6-63ADFB605EA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59AA5789-29CF-4D74-9329-13EE14068810}

@@ -334,144 +334,94 @@ void ProcessModels (void)
 main
 ============
 */
-int main (int argc, char **argv)
-{
+int main (int argc, char **argv) {
 	int		i;
 	double		start, end;
 	char		path[1024];
 
 	printf ("---- qbsp3 ----\n");
 
-	for (i=1 ; i<argc ; i++)
-	{
-		if (!strcmp(argv[i],"-threads"))
-		{
-			numthreads = atoi (argv[i+1]);
+	for (i = 1; i < argc; i++) {
+		if (!strcmp (argv[i], "-threads")) {
+			numthreads = atoi (argv[i + 1]);
 			i++;
-		}
-		else if (!strcmp(argv[i],"-glview"))
-		{
+		} else if (!strcmp (argv[i], "-glview")) {
 			glview = true;
-		}
-		else if (!strcmp(argv[i], "-v"))
-		{
+		} else if (!strcmp (argv[i], "-v")) {
 			printf ("verbose = true\n");
 			verbose = true;
-		}
-		else if (!strcmp(argv[i], "-draw"))
-		{
+		} else if (!strcmp (argv[i], "-draw")) {
 			printf ("drawflag = true\n");
 			drawflag = true;
-		}
-		else if (!strcmp(argv[i], "-noweld"))
-		{
+		} else if (!strcmp (argv[i], "-noweld")) {
 			printf ("noweld = true\n");
 			noweld = true;
-		}
-		else if (!strcmp(argv[i], "-nocsg"))
-		{
+		} else if (!strcmp (argv[i], "-nocsg")) {
 			printf ("nocsg = true\n");
 			nocsg = true;
-		}
-		else if (!strcmp(argv[i], "-noshare"))
-		{
+		} else if (!strcmp (argv[i], "-noshare")) {
 			printf ("noshare = true\n");
 			noshare = true;
-		}
-		else if (!strcmp(argv[i], "-notjunc"))
-		{
+		} else if (!strcmp (argv[i], "-notjunc")) {
 			printf ("notjunc = true\n");
 			notjunc = true;
-		}
-		else if (!strcmp(argv[i], "-nowater"))
-		{
+		} else if (!strcmp (argv[i], "-nowater")) {
 			printf ("nowater = true\n");
 			nowater = true;
-		}
-		else if (!strcmp(argv[i], "-noopt"))
-		{
+		} else if (!strcmp (argv[i], "-noopt")) {
 			printf ("noopt = true\n");
 			noopt = true;
-		}
-		else if (!strcmp(argv[i], "-noprune"))
-		{
+		} else if (!strcmp (argv[i], "-noprune")) {
 			printf ("noprune = true\n");
 			noprune = true;
-		}
-		else if (!strcmp(argv[i], "-nofill"))
-		{
+		} else if (!strcmp (argv[i], "-nofill")) {
 			printf ("nofill = true\n");
 			nofill = true;
-		}
-		else if (!strcmp(argv[i], "-nomerge"))
-		{
+		} else if (!strcmp (argv[i], "-nomerge")) {
 			printf ("nomerge = true\n");
 			nomerge = true;
-		}
-		else if (!strcmp(argv[i], "-nosubdiv"))
-		{
+		} else if (!strcmp (argv[i], "-nosubdiv")) {
 			printf ("nosubdiv = true\n");
 			nosubdiv = true;
-		}
-		else if (!strcmp(argv[i], "-nodetail"))
-		{
+		} else if (!strcmp (argv[i], "-nodetail")) {
 			printf ("nodetail = true\n");
 			nodetail = true;
-		}
-		else if (!strcmp(argv[i], "-fulldetail"))
-		{
+		} else if (!strcmp (argv[i], "-fulldetail")) {
 			printf ("fulldetail = true\n");
 			fulldetail = true;
-		}
-		else if (!strcmp(argv[i], "-onlyents"))
-		{
+		} else if (!strcmp (argv[i], "-onlyents")) {
 			printf ("onlyents = true\n");
 			onlyents = true;
-		}
-		else if (!strcmp(argv[i], "-micro"))
-		{
-			microvolume = atof(argv[i+1]);
+		} else if (!strcmp (argv[i], "-micro")) {
+			microvolume = atof (argv[i + 1]);
 			printf ("microvolume = %f\n", microvolume);
 			i++;
-		}
-		else if (!strcmp(argv[i], "-leaktest"))
-		{
+		} else if (!strcmp (argv[i], "-leaktest")) {
 			printf ("leaktest = true\n");
 			leaktest = true;
-		}
-		else if (!strcmp(argv[i], "-verboseentities"))
-		{
+		} else if (!strcmp (argv[i], "-verboseentities")) {
 			printf ("verboseentities = true\n");
 			verboseentities = true;
-		}
-		else if (!strcmp(argv[i], "-chop"))
-		{
-			subdivide_size = atof(argv[i+1]);
+		} else if (!strcmp (argv[i], "-chop")) {
+			subdivide_size = atof (argv[i + 1]);
 			printf ("subdivide_size = %f\n", subdivide_size);
 			i++;
-		}
-		else if (!strcmp(argv[i], "-block"))
-		{
-			block_xl = block_xh = atoi(argv[i+1]);
-			block_yl = block_yh = atoi(argv[i+2]);
+		} else if (!strcmp (argv[i], "-block")) {
+			block_xl = block_xh = atoi (argv[i + 1]);
+			block_yl = block_yh = atoi (argv[i + 2]);
 			printf ("block: %i,%i\n", block_xl, block_yl);
-			i+=2;
-		}
-		else if (!strcmp(argv[i], "-blocks"))
-		{
-			block_xl = atoi(argv[i+1]);
-			block_yl = atoi(argv[i+2]);
-			block_xh = atoi(argv[i+3]);
-			block_yh = atoi(argv[i+4]);
-			printf ("blocks: %i,%i to %i,%i\n", 
+			i += 2;
+		} else if (!strcmp (argv[i], "-blocks")) {
+			block_xl = atoi (argv[i + 1]);
+			block_yl = atoi (argv[i + 2]);
+			block_xh = atoi (argv[i + 3]);
+			block_yh = atoi (argv[i + 4]);
+			printf ("blocks: %i,%i to %i,%i\n",
 				block_xl, block_yl, block_xh, block_yh);
-			i+=4;
-		}
-		else if (!strcmp (argv[i],"-tmpout"))
-		{
+			i += 4;
+		} else if (!strcmp (argv[i], "-tmpout")) {
 			strcpy (outbase, "/tmp");
-		}
-		else if (argv[i][0] == '-')
+		} else if (argv[i][0] == '-')
 			Error ("Unknown option \"%s\"", argv[i]);
 		else
 			break;
@@ -484,7 +434,12 @@ int main (int argc, char **argv)
 
 	ThreadSetDefault ();
 numthreads = 1;		// multiple threads aren't helping...
-	SetQdirFromPath (argv[i]);
+	if (getenv ("Q2GAMEDIR")) {
+		SetQdirFromPath (getenv ("Q2GAMEDIR"));
+	} else {
+		SetQdirFromPath (argv[i]);
+	}
+	printf ("game directory: %s\n", gamedir);
 
 	strcpy (source, ExpandArg (argv[i]));
 	StripExtension (source);
